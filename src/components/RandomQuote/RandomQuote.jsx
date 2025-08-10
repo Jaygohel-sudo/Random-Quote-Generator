@@ -14,7 +14,7 @@ const RandomQuote = () => {
     }
     loadQuotes();
   }, []);
-    
+    const twitter = ()=>{window.open(`https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`)}
     const random = ()=>{
         const select = quotes[Math.floor(Math.random()* quotes.length)]
         Setquote(select)
@@ -32,10 +32,10 @@ const RandomQuote = () => {
         <div>
             <div className='line'></div>
             <div className='bottom'>
-                <div className='author'>{quote.author}</div>
+                <div className='author'>- {quote.author}</div>
                 <div className='icons'>
                     <img src={reload_icon} onClick={()=>{random()}} alt="" />
-                    <img src={x_icon} alt="" />
+                    <img src={x_icon} onClick={()=>{twitter()}} alt="" />
                 </div>
             </div>
         </div>
